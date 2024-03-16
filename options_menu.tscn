@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=3 uid="uid://dumhujojggt0s"]
+
+[ext_resource type="Script" path="res://options_menu.gd" id="1_hyb10"]
+[ext_resource type="StyleBox" uid="uid://cua5wxb30dr5" path="res://optionsMenuExitButton.tres" id="1_swy3o"]
+[ext_resource type="StyleBox" uid="uid://b0ayo7wijof50" path="res://optionsMenuExitButtonPressed.tres" id="2_rdvht"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5jgt"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[node name="optionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hyb10")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 320.0
+offset_top = 64.0
+offset_right = 832.0
+offset_bottom = 448.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_r5jgt")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Options"
+
+[node name="createdBy" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Created by Nick"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 2
+
+[node name="Music" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Music "
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+value = 100.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="soundEffects" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Sound Effects
+"
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+value = 100.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 130
+alignment = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Animations?"
+
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 8
+button_pressed = true
+
+[node name="exitButton" type="Button" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("1_swy3o")
+theme_override_styles/hover = ExtResource("2_rdvht")
+theme_override_styles/pressed = ExtResource("2_rdvht")
+theme_override_styles/focus = ExtResource("1_swy3o")
+text = "X"
+
+[connection signal="pressed" from="PanelContainer/exitButton" to="." method="_on_button_pressed"]

@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://hoo174ku7ydt"]
+
+[ext_resource type="Script" path="res://parallax_bg_v_1.gd" id="1_3tkyp"]
+[ext_resource type="Texture2D" uid="uid://cu4gb433hb00k" path="res://parallaxCity/1.png" id="2_02t2q"]
+[ext_resource type="Texture2D" uid="uid://birxpgoh3s8bp" path="res://parallaxCity/2.png" id="3_xbkjk"]
+[ext_resource type="Texture2D" uid="uid://dm0unue88gwws" path="res://parallaxCity/3.png" id="4_efryq"]
+[ext_resource type="Texture2D" uid="uid://dy73fwhemy5gc" path="res://parallaxCity/4.png" id="5_j1i7e"]
+[ext_resource type="Texture2D" uid="uid://dikkuufvewrlu" path="res://parallaxCity/5.png" id="6_3m3bp"]
+[ext_resource type="Texture2D" uid="uid://66a2n8ehettr" path="res://streetTile(Tileset).png" id="7_ulk3r"]
+[ext_resource type="Texture2D" uid="uid://nkb5purp4vad" path="res://street-lights2.png" id="8_asmcw"]
+
+[node name="ParallaxBg-V1" type="ParallaxBackground"]
+script = ExtResource("1_3tkyp")
+
+[node name="sky" type="ParallaxLayer" parent="."]
+position = Vector2(0, 2)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="sky"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_02t2q")
+centered = false
+
+[node name="cityLayer1" type="ParallaxLayer" parent="."]
+position = Vector2(0, 2)
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="cityLayer1"]
+position = Vector2(0, -2)
+scale = Vector2(2, 2)
+texture = ExtResource("3_xbkjk")
+centered = false
+
+[node name="cityLayer2" type="ParallaxLayer" parent="."]
+position = Vector2(0, 2)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="cityLayer2"]
+scale = Vector2(2, 2)
+texture = ExtResource("4_efryq")
+centered = false
+
+[node name="cityLayer3" type="ParallaxLayer" parent="."]
+position = Vector2(0, 2)
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="cityLayer3"]
+scale = Vector2(2, 2)
+texture = ExtResource("5_j1i7e")
+centered = false
+
+[node name="cityLayer4" type="ParallaxLayer" parent="."]
+position = Vector2(0, 2)
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="cityLayer4"]
+position = Vector2(0, -2)
+scale = Vector2(2, 2)
+texture = ExtResource("6_3m3bp")
+centered = false
+
+[node name="street" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="street"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(0, 624)
+scale = Vector2(37.1613, 1.66666)
+texture = ExtResource("7_ulk3r")
+centered = false
+region_enabled = true
+region_rect = Rect2(64.1135, 112.042, 31.8865, 15.9848)
+
+[node name="Sprite2D2" type="Sprite2D" parent="street"]
+position = Vector2(652, 488)
+scale = Vector2(0.323333, 0.264)
+texture = ExtResource("8_asmcw")

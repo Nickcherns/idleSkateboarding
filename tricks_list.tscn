@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://dowgjbnxsep1a"]
+
+[node name="tricksList" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 288.0
+offset_bottom = 648.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_right = 288.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(288, 648)
+layout_mode = 2
+
+[node name="Ollie" type="Panel" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1, 120)
+layout_mode = 2
+
+[node name="Trick Name" type="Label" parent="ScrollContainer/VBoxContainer/Ollie"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 288.0
+offset_bottom = 31.0
+text = "Ollie
+"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Ollie"]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 288.0
+offset_bottom = 55.0
+text = "Trick Points: 1"
+horizontal_alignment = 1
+
+[node name="Cost" type="Label" parent="ScrollContainer/VBoxContainer/Ollie"]
+layout_mode = 0
+offset_top = 55.0
+offset_right = 288.0
+offset_bottom = 78.0
+text = "Cost: 50
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Learn" type="Button" parent="ScrollContainer/VBoxContainer/Ollie"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 80.0
+offset_right = 192.0
+offset_bottom = 111.0
+text = "Learn
+"
+
+[node name="Kickflip" type="Panel" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1, 120)
+layout_mode = 2
+
+[node name="Trick Name" type="Label" parent="ScrollContainer/VBoxContainer/Kickflip"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 288.0
+offset_bottom = 31.0
+text = "Kickflip
+"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Kickflip"]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 288.0
+offset_bottom = 55.0
+text = "Trick Points: 2"
+horizontal_alignment = 1
+
+[node name="Cost" type="Label" parent="ScrollContainer/VBoxContainer/Kickflip"]
+layout_mode = 0
+offset_top = 55.0
+offset_right = 288.0
+offset_bottom = 78.0
+text = "Cost: 250
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Learn" type="Button" parent="ScrollContainer/VBoxContainer/Kickflip"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 80.0
+offset_right = 192.0
+offset_bottom = 111.0
+text = "Learn
+"
+
+[node name="Heelflip" type="Panel" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1, 120)
+layout_mode = 2
+
+[node name="Trick Name" type="Label" parent="ScrollContainer/VBoxContainer/Heelflip"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 288.0
+offset_bottom = 31.0
+text = "Heelflip
+"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Heelflip"]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 288.0
+offset_bottom = 55.0
+text = "Trick Points: 5"
+horizontal_alignment = 1
+
+[node name="Cost" type="Label" parent="ScrollContainer/VBoxContainer/Heelflip"]
+layout_mode = 0
+offset_top = 55.0
+offset_right = 288.0
+offset_bottom = 78.0
+text = "Cost: 500
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Learn" type="Button" parent="ScrollContainer/VBoxContainer/Heelflip"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 80.0
+offset_right = 192.0
+offset_bottom = 111.0
+text = "Learn
+"
