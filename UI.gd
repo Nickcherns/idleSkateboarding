@@ -12,13 +12,17 @@ func _process(delta):
 
 
 func _on_tricks_pressed():
-	$tricksList.visible = true
-	$upgradesList.visible = false
+	$CanvasLayer2/tricksList.visible = true
+	$CanvasLayer2/tricks.visible = true
+	$CanvasLayer2/upgradesList.visible = false
+	$CanvasLayer2/upgrades.visible = false
 
 
 func _on_upgrades_pressed():
-	$upgradesList.visible = true
-	$tricksList.visible = false
+	$CanvasLayer2/upgradesList.visible = true
+	$CanvasLayer2/upgrades.visible = true
+	$CanvasLayer2/tricksList.visible = false
+	$CanvasLayer2/tricks.visible = false
 
 
 func _on_extras_pressed():
@@ -26,11 +30,11 @@ func _on_extras_pressed():
 
 
 func _on_options_pressed():
-	if $optionsMenu.visible == true:  
-		$optionsMenu.visible = false
+	if $CanvasLayer3/optionsMenu.visible == true:  
+		$CanvasLayer3/optionsMenu.visible = false
 		return
 
-	$optionsMenu.visible = true
+	$CanvasLayer3/optionsMenu.visible = true
 
 func _on_exit_pressed():
 	get_tree().quit()

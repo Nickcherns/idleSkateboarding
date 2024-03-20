@@ -1,179 +1,140 @@
-[gd_scene format=3 uid="uid://dbvp8tltm6je1"]
+[gd_scene load_steps=2 format=3 uid="uid://dbvp8tltm6je1"]
+
+[ext_resource type="StyleBox" uid="uid://bfmm1r451b2ic" path="res://mainPanels.tres" id="1_m2ytw"]
 
 [node name="upgradesList" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 288.0
-offset_bottom = 648.0
+offset_right = 1923.0
+offset_bottom = 165.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-layout_mode = 0
-offset_right = 288.0
-offset_bottom = 648.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-custom_minimum_size = Vector2(288, 648)
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+offset_right = 1923.0
+offset_bottom = 165.0
+theme_override_constants/separation = 35
 
-[node name="pushHarder" type="Panel" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1, 120)
+[node name="pushHarder" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("1_m2ytw")
 
-[node name="Upgrade Name" type="Label" parent="ScrollContainer/VBoxContainer/pushHarder"]
-layout_mode = 0
-offset_top = 16.0
-offset_right = 280.0
-offset_bottom = 39.0
+[node name="Upgrade Name" type="Label" parent="HBoxContainer/pushHarder"]
+layout_mode = 2
+size_flags_vertical = 0
 text = "(x2) Click Points
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cost" type="Label" parent="ScrollContainer/VBoxContainer/pushHarder"]
-layout_mode = 0
-offset_top = 40.0
-offset_right = 280.0
-offset_bottom = 63.0
+[node name="Cost" type="Label" parent="HBoxContainer/pushHarder"]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Cost: 10 (?)
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Train" type="Button" parent="ScrollContainer/VBoxContainer/pushHarder"]
-layout_mode = 0
-offset_left = 88.0
-offset_top = 80.0
-offset_right = 192.0
-offset_bottom = 111.0
+[node name="Train" type="Button" parent="HBoxContainer/pushHarder"]
+layout_mode = 2
+size_flags_vertical = 8
 text = "Train
 "
 
-[node name="learnStyle" type="Panel" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1, 120)
+[node name="learnStyle" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("1_m2ytw")
 
-[node name="Upgrade Name" type="Label" parent="ScrollContainer/VBoxContainer/learnStyle"]
-layout_mode = 0
-offset_top = 16.0
-offset_right = 280.0
-offset_bottom = 39.0
+[node name="Upgrade Name" type="Label" parent="HBoxContainer/learnStyle"]
+layout_mode = 2
+size_flags_vertical = 0
 text = "Style Points x2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cost" type="Label" parent="ScrollContainer/VBoxContainer/learnStyle"]
-layout_mode = 0
-offset_top = 40.0
-offset_right = 280.0
-offset_bottom = 63.0
+[node name="Cost" type="Label" parent="HBoxContainer/learnStyle"]
+layout_mode = 2
 text = "Cost: 50
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Train" type="Button" parent="ScrollContainer/VBoxContainer/learnStyle"]
-layout_mode = 0
-offset_left = 88.0
-offset_top = 80.0
-offset_right = 192.0
-offset_bottom = 111.0
+[node name="Train" type="Button" parent="HBoxContainer/learnStyle"]
+layout_mode = 2
+size_flags_vertical = 8
 text = "Train
 "
 
-[node name="learnTricks" type="Panel" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1, 120)
+[node name="learnTricks" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("1_m2ytw")
 
-[node name="Upgrade Name" type="Label" parent="ScrollContainer/VBoxContainer/learnTricks"]
-layout_mode = 0
-offset_top = 16.0
-offset_right = 280.0
-offset_bottom = 39.0
+[node name="Upgrade Name" type="Label" parent="HBoxContainer/learnTricks"]
+layout_mode = 2
+size_flags_vertical = 0
 text = "Learn Some Tricks"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cost" type="Label" parent="ScrollContainer/VBoxContainer/learnTricks"]
-layout_mode = 0
-offset_top = 40.0
-offset_right = 280.0
-offset_bottom = 63.0
+[node name="Cost" type="Label" parent="HBoxContainer/learnTricks"]
+layout_mode = 2
 text = "Cost: 150
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Train" type="Button" parent="ScrollContainer/VBoxContainer/learnTricks"]
-layout_mode = 0
-offset_left = 88.0
-offset_top = 80.0
-offset_right = 192.0
-offset_bottom = 111.0
+[node name="Train" type="Button" parent="HBoxContainer/learnTricks"]
+layout_mode = 2
+size_flags_vertical = 8
 text = "Train
 "
 
-[node name="betterClicks" type="Panel" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1, 120)
+[node name="betterClicks" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("1_m2ytw")
 
-[node name="Upgrade Name" type="Label" parent="ScrollContainer/VBoxContainer/betterClicks"]
-layout_mode = 0
-offset_top = 16.0
-offset_right = 280.0
-offset_bottom = 39.0
+[node name="Upgrade Name" type="Label" parent="HBoxContainer/betterClicks"]
+layout_mode = 2
+size_flags_vertical = 0
 text = "(x2) Click Points
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cost" type="Label" parent="ScrollContainer/VBoxContainer/betterClicks"]
-layout_mode = 0
-offset_top = 40.0
-offset_right = 280.0
-offset_bottom = 63.0
+[node name="Cost" type="Label" parent="HBoxContainer/betterClicks"]
+layout_mode = 2
 text = "Cost: 500
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Train" type="Button" parent="ScrollContainer/VBoxContainer/betterClicks"]
-layout_mode = 0
-offset_left = 88.0
-offset_top = 80.0
-offset_right = 192.0
-offset_bottom = 111.0
+[node name="Train" type="Button" parent="HBoxContainer/betterClicks"]
+layout_mode = 2
+size_flags_vertical = 8
 text = "Train
 "
 
-[node name="solidifyStyle" type="Panel" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1, 120)
+[node name="solidifyStyle" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("1_m2ytw")
 
-[node name="Upgrade Name" type="Label" parent="ScrollContainer/VBoxContainer/solidifyStyle"]
-layout_mode = 0
-offset_top = 16.0
-offset_right = 280.0
-offset_bottom = 39.0
-text = "(x2) Style Points + (x2) Trick Points
+[node name="Upgrade Name" type="Label" parent="HBoxContainer/solidifyStyle"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "(x2) Style Points 
+(x2) Trick Points
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cost" type="Label" parent="ScrollContainer/VBoxContainer/solidifyStyle"]
-layout_mode = 0
-offset_top = 40.0
-offset_right = 280.0
-offset_bottom = 63.0
+[node name="Cost" type="Label" parent="HBoxContainer/solidifyStyle"]
+layout_mode = 2
 text = "Cost: 1000
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Train" type="Button" parent="ScrollContainer/VBoxContainer/solidifyStyle"]
-layout_mode = 0
-offset_left = 88.0
-offset_top = 80.0
-offset_right = 192.0
-offset_bottom = 111.0
+[node name="Train" type="Button" parent="HBoxContainer/solidifyStyle"]
+layout_mode = 2
+size_flags_vertical = 8
 text = "Train
 "

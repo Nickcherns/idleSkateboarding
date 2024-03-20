@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dctt2a4iagbam"]
+[gd_scene load_steps=10 format=3 uid="uid://dctt2a4iagbam"]
 
 [ext_resource type="Script" path="res://UI.gd" id="1_76oxq"]
 [ext_resource type="PackedScene" uid="uid://dowgjbnxsep1a" path="res://tricks_list.tscn" id="2_2tiln"]
@@ -7,6 +7,13 @@
 [ext_resource type="StyleBox" uid="uid://ww7kgerd4brt" path="res://menuButtonHover.tres" id="5_qxngc"]
 [ext_resource type="StyleBox" uid="uid://bhm0oa6xcbh3i" path="res://menuButtonPressed.tres" id="6_a7mcn"]
 [ext_resource type="PackedScene" uid="uid://dumhujojggt0s" path="res://options_menu.tscn" id="7_78a4d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1o4w"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2cqk"]
 bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
@@ -24,41 +31,91 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_76oxq")
 
-[node name="tricksList" parent="." instance=ExtResource("2_2tiln")]
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="optionsMenu" parent="CanvasLayer3" instance=ExtResource("7_78a4d")]
 visible = false
-metadata/_edit_lock_ = true
+z_index = 10
+offset_left = -260.0
+offset_top = -192.0
+offset_right = 260.0
+offset_bottom = 192.0
 
-[node name="upgradesList" parent="." instance=ExtResource("3_ijdvg")]
-metadata/_edit_lock_ = true
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="menuButtons" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="PanelContainer" type="PanelContainer" parent="menuButtons"]
-layout_mode = 2
-offset_left = 288.0
-offset_top = 528.0
-offset_right = 1152.0
+[node name="Panel" type="PanelContainer" parent="CanvasLayer2"]
+z_index = -1
+offset_top = 352.0
+offset_right = 1280.0
 offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_l1o4w")
+
+[node name="tricksList" parent="CanvasLayer2" instance=ExtResource("2_2tiln")]
+visible = false
+offset_left = 40.0
+offset_top = 456.0
+offset_right = 40.0
+offset_bottom = 456.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="upgradesList" parent="CanvasLayer2" instance=ExtResource("3_ijdvg")]
+offset_left = 40.0
+offset_top = 456.0
+offset_right = 904.0
+offset_bottom = 652.0
+size_flags_vertical = 8
+
+[node name="tricks" type="Label" parent="CanvasLayer2"]
+visible = false
+offset_left = 423.0
+offset_top = 384.0
+offset_right = 535.0
+offset_bottom = 418.0
+theme_override_font_sizes/font_size = 24
+text = "Tricks:"
+
+[node name="upgrades" type="Label" parent="CanvasLayer2"]
+offset_left = 423.0
+offset_top = 384.0
+offset_right = 535.0
+offset_bottom = 418.0
+theme_override_font_sizes/font_size = 24
+text = "Upgrades:"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="menuButtons" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/menuButtons"]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 1280.0
+offset_bottom = 88.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_e2cqk")
 
-[node name="MarginContainer" type="MarginContainer" parent="menuButtons"]
-layout_mode = 2
-offset_left = 438.5
-offset_top = 528.0
-offset_right = 1001.5
-offset_bottom = 648.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/menuButtons"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 106.0
 theme_override_constants/margin_top = 35
 theme_override_constants/margin_bottom = 35
 
-[node name="HBoxContainer" type="HBoxContainer" parent="menuButtons/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/menuButtons/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="Tricks" type="Button" parent="menuButtons/MarginContainer/HBoxContainer"]
+[node name="Tricks" type="Button" parent="CanvasLayer/menuButtons/MarginContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -73,7 +130,7 @@ theme_override_styles/pressed = ExtResource("6_a7mcn")
 text = "Tricks
 "
 
-[node name="Upgrades" type="Button" parent="menuButtons/MarginContainer/HBoxContainer"]
+[node name="Upgrades" type="Button" parent="CanvasLayer/menuButtons/MarginContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -88,7 +145,7 @@ theme_override_styles/pressed = ExtResource("6_a7mcn")
 text = "Upgrades
 "
 
-[node name="Extras" type="Button" parent="menuButtons/MarginContainer/HBoxContainer"]
+[node name="Extras" type="Button" parent="CanvasLayer/menuButtons/MarginContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -103,7 +160,7 @@ theme_override_styles/pressed = ExtResource("6_a7mcn")
 text = "Extras
 "
 
-[node name="Options" type="Button" parent="menuButtons/MarginContainer/HBoxContainer"]
+[node name="Options" type="Button" parent="CanvasLayer/menuButtons/MarginContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -117,7 +174,7 @@ theme_override_styles/hover = ExtResource("5_qxngc")
 theme_override_styles/pressed = ExtResource("6_a7mcn")
 text = "Options"
 
-[node name="Exit" type="Button" parent="menuButtons/MarginContainer/HBoxContainer"]
+[node name="Exit" type="Button" parent="CanvasLayer/menuButtons/MarginContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -131,15 +188,8 @@ theme_override_styles/hover = ExtResource("5_qxngc")
 theme_override_styles/pressed = ExtResource("6_a7mcn")
 text = "Exit"
 
-[node name="optionsMenu" parent="." instance=ExtResource("7_78a4d")]
-visible = false
-layout_mode = 1
-offset_left = 128.0
-offset_top = -8.0
-offset_bottom = -8.0
-
-[connection signal="pressed" from="menuButtons/MarginContainer/HBoxContainer/Tricks" to="." method="_on_tricks_pressed"]
-[connection signal="pressed" from="menuButtons/MarginContainer/HBoxContainer/Upgrades" to="." method="_on_upgrades_pressed"]
-[connection signal="pressed" from="menuButtons/MarginContainer/HBoxContainer/Extras" to="." method="_on_extras_pressed"]
-[connection signal="pressed" from="menuButtons/MarginContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="menuButtons/MarginContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/menuButtons/MarginContainer/HBoxContainer/Tricks" to="." method="_on_tricks_pressed"]
+[connection signal="pressed" from="CanvasLayer/menuButtons/MarginContainer/HBoxContainer/Upgrades" to="." method="_on_upgrades_pressed"]
+[connection signal="pressed" from="CanvasLayer/menuButtons/MarginContainer/HBoxContainer/Extras" to="." method="_on_extras_pressed"]
+[connection signal="pressed" from="CanvasLayer/menuButtons/MarginContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/menuButtons/MarginContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
