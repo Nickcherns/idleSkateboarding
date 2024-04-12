@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkateAnimator" load_steps=2 format=3 uid="uid://cvfqm653ub0uu"]
+
+[ext_resource type="Script" path="res://TrickSelector.gd" id="1_xlkwt"]
+
+[resource]
+script = ExtResource("1_xlkwt")
+idle = "idleSkate"
+kickflip = "flipAway"
+heelflip = "flipTowards"
+nollie_kickflip = "flipAway"
+nollie_heelflip = "flipTowards"
+manual = "manualFull"
+nose_manual = "manualFull"

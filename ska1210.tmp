@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://4s2cocq13nva"]
+
+[ext_resource type="Script" path="res://skateboard.gd" id="1_6x2h1"]
+[ext_resource type="Texture2D" uid="uid://p2bu7yoa4ht7" path="res://dexDeuxPack.png" id="2_whnto"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkjt7"]
+radius = 4.42396
+height = 32.1085
+
+[sub_resource type="Animation" id="Animation_ygm4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RigidBody2D/idleSkateboard:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_w1mi7"]
+resource_name = "idle-wheelSpin"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RigidBody2D/idleSkateboard:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_n0kc0"]
+resource_name = "manual-lift"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1i5wd"]
+_data = {
+"RESET": SubResource("Animation_ygm4g"),
+"idle-wheelSpin": SubResource("Animation_w1mi7"),
+"manual-lift": SubResource("Animation_n0kc0")
+}
+
+[node name="skateboard" type="Node2D"]
+script = ExtResource("1_6x2h1")
+
+[node name="RigidBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(1.58615e-15, 10)
+rotation = 1.5708
+scale = Vector2(5.254, 5.606)
+shape = SubResource("CapsuleShape2D_rkjt7")
+
+[node name="idleSkateboard" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("2_whnto")
+vframes = 2
+region_enabled = true
+region_rect = Rect2(16, 208, 32, 32)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RigidBody2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_1i5wd")
+}

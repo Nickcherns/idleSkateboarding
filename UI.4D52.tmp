@@ -1,9 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dctt2a4iagbam"]
+[gd_scene load_steps=14 format=3 uid="uid://dctt2a4iagbam"]
 
 [ext_resource type="Script" path="res://scripts/UI.gd" id="1_76oxq"]
-[ext_resource type="StyleBox" uid="uid://dh3a6adh2nl88" path="res://curbPanel.tres" id="3_m2lc2"]
 [ext_resource type="Script" path="res://scripts/tricks_list.gd" id="3_wrlhp"]
-[ext_resource type="Resource" uid="uid://dn5jx7my24d5m" path="res://PointSystem.tres" id="4_ig0a6"]
 [ext_resource type="StyleBox" uid="uid://bfmm1r451b2ic" path="res://themes/mainPanels.tres" id="4_pikmj"]
 [ext_resource type="StyleBox" uid="uid://y8mgks3bckir" path="res://themes/menuButtonDefault.tres" id="4_typ01"]
 [ext_resource type="StyleBox" uid="uid://ww7kgerd4brt" path="res://themes/menuButtonHover.tres" id="5_qxngc"]
@@ -13,12 +11,16 @@
 [ext_resource type="PackedScene" uid="uid://dumhujojggt0s" path="res://options_menu.tscn" id="7_78a4d"]
 [ext_resource type="StyleBox" uid="uid://cemdqskmqogaf" path="res://themes/PerformButtonDefault.tres" id="7_g7d3r"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1o4w"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 1
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbcni"]
 content_margin_top = 20.0
 bg_color = Color(0.298039, 0.298039, 0.298039, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e46kw"]
-bg_color = Color(0.219608, 0.156863, 0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2cqk"]
 bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
@@ -54,7 +56,7 @@ size_flags_vertical = 4
 offset_top = 480.0
 offset_right = 1280.0
 offset_bottom = 776.0
-theme_override_styles/panel = ExtResource("3_m2lc2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_l1o4w")
 
 [node name="TrickList" type="Control" parent="CanvasLayer2"]
 visible = false
@@ -65,7 +67,6 @@ offset_top = 568.0
 offset_right = 80.0
 offset_bottom = 568.0
 script = ExtResource("3_wrlhp")
-PointSystem = ExtResource("4_ig0a6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/TrickList"]
 layout_mode = 0
@@ -187,7 +188,6 @@ offset_top = 568.0
 offset_right = 120.0
 offset_bottom = 608.0
 script = ExtResource("5_rglgu")
-PointSystem = ExtResource("4_ig0a6")
 push_harder_cost = 25
 some_style_cost = 50
 some_tricks_cost = 200
@@ -492,29 +492,6 @@ offset_bottom = 538.0
 theme_override_font_sizes/font_size = 24
 text = "Perform:"
 
-[node name="cantAfford" type="Label" parent="CanvasLayer2"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -136.0
-offset_top = 88.0
-offset_right = 137.0
-offset_bottom = 111.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0.952941, 0.952941, 0.952941, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_e46kw")
-text = "You can't afford this upgrade, bro..."
-
-[node name="errorTimer" type="Timer" parent="CanvasLayer2/cantAfford"]
-wait_time = 10.0
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="menuButtons" type="Control" parent="CanvasLayer"]
@@ -648,7 +625,6 @@ text = "Exit"
 [connection signal="pressed" from="CanvasLayer2/PerformList/VBoxContainer/nose/nollie heelflip" to="CanvasLayer2/PerformList" method="_on_nollie_heelflip_pressed"]
 [connection signal="pressed" from="CanvasLayer2/PerformList/VBoxContainer/Manuals/manual" to="CanvasLayer2/PerformList" method="_on_manual_pressed"]
 [connection signal="pressed" from="CanvasLayer2/PerformList/VBoxContainer/Manuals/nose manual" to="CanvasLayer2/PerformList" method="_on_nose_manual_pressed"]
-[connection signal="timeout" from="CanvasLayer2/cantAfford/errorTimer" to="." method="_on_error_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/menuButtons/MarginContainer/HBoxContainer/Tricks" to="." method="_on_tricks_pressed"]
 [connection signal="pressed" from="CanvasLayer/menuButtons/MarginContainer/HBoxContainer/Upgrades" to="." method="_on_upgrades_pressed"]
 [connection signal="pressed" from="CanvasLayer/menuButtons/MarginContainer/HBoxContainer/Perform" to="." method="_on_perform_pressed"]

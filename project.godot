@@ -18,8 +18,16 @@ config/icon="res://icon.svg"
 [display]
 
 window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_height=848
 window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://art/": "red",
+"res://scripts/": "purple",
+"res://themes/": "blue"
+}
 
 [rendering]
 

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_38bvs"]
 [ext_resource type="PackedScene" uid="uid://hoo174ku7ydt" path="res://parallax_bg_v_1.tscn" id="2_1m534"]
-[ext_resource type="Resource" uid="uid://dn5jx7my24d5m" path="res://PointSystem.tres" id="2_orxi0"]
 [ext_resource type="PackedScene" uid="uid://dctt2a4iagbam" path="res://UI.tscn" id="2_ps4dx"]
+[ext_resource type="Script" path="res://IncrementalSystem.gd" id="2_sq3sv"]
 [ext_resource type="StyleBox" uid="uid://bfmm1r451b2ic" path="res://themes/mainPanels.tres" id="3_66mmh"]
 [ext_resource type="PackedScene" uid="uid://4s2cocq13nva" path="res://skateboard.tscn" id="3_roexk"]
 
@@ -14,7 +14,7 @@ size = Vector2(21, 146)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_38bvs")
-PointSystem = ExtResource("2_orxi0")
+something = ExtResource("2_sq3sv")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 z_index = -1
