@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://d02chaqeajtdy"]
+
+[ext_resource type="Texture2D" uid="uid://r5hpxthsx8en" path="res://art/blueSheet.png" id="1_ilsmg"]
+
+[resource]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("1_ilsmg")
+region_rect = Rect2(191, 49, 189, 45)

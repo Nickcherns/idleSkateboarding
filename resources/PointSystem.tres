@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IncrementalSystem" load_steps=2 format=3 uid="uid://dn5jx7my24d5m"]
+
+[ext_resource type="Script" path="res://resources/IncrementalSystem.gd" id="1_7x634"]
+
+[resource]
+script = ExtResource("1_7x634")
+active_value = 1000000
+click_value = 1
+trick_score = 0
+trick_multi = 1
+style_points = 1

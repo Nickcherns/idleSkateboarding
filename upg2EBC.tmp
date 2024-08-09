@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxwd7h2ce0rli"]
+
+[ext_resource type="Script" path="res://UpgradeComponent.gd" id="1_j5nxg"]
+[ext_resource type="Resource" uid="uid://ccdj6eqwn7cag" path="res://resources/upgrades/upgrade1_learnBasics.tres" id="2_fv2al"]
+
+[node name="Upgrade Component" type="Control"]
+layout_mode = 3
+anchor_right = 0.15
+anchor_bottom = 0.226
+offset_right = -24.0
+offset_bottom = 0.35199
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j5nxg")
+profile = ExtResource("2_fv2al")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 192.0
+
+[node name="name" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.042
+anchor_right = 0.375
+anchor_bottom = 0.042
+offset_top = -0.0640011
+offset_right = 44.0
+offset_bottom = 22.936
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "name"
+
+[node name="description" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.333
+anchor_top = 0.208
+anchor_right = 0.333
+anchor_bottom = 0.208
+offset_left = 0.0639992
+offset_top = 0.0639992
+offset_right = 63.064
+offset_bottom = 23.064
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "descript"
+
+[node name="cost" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.333
+anchor_top = 0.458
+anchor_right = 0.333
+anchor_bottom = 0.458
+offset_left = 0.0639992
+offset_top = 0.0639954
+offset_right = 32.064
+offset_bottom = 23.064
+text = "cost"
+
+[node name="train" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+text = "Train"
+
+[connection signal="pressed" from="Panel/train" to="." method="_on_train_pressed"]

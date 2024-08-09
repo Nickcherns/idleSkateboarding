@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TrickItem" load_steps=2 format=3 uid="uid://dryq5mjm0euxe"]
+
+[ext_resource type="Script" path="res://resources/Tricks/TrickItem.gd" id="1_hbvci"]
+
+[resource]
+script = ExtResource("1_hbvci")
+name = "360 Flip"
+description = "+7 Trick"
+cost = 5000
+trick_value = 7
+locked = true
+flip_trick = true
+nollie_flip_trick = false

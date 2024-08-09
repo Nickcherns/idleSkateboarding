@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TrickItem" load_steps=2 format=3 uid="uid://v36oplkiaouq"]
+
+[ext_resource type="Script" path="res://resources/Tricks/TrickItem.gd" id="1_8rton"]
+
+[resource]
+script = ExtResource("1_8rton")
+name = "Heelflip"
+description = "+5 Trick"
+cost = 2500
+trick_value = 5
+locked = true
+flip_trick = true
+nollie_flip_trick = false

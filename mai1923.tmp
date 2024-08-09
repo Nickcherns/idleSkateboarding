@@ -1,0 +1,161 @@
+[gd_scene load_steps=8 format=3 uid="uid://ter0b7t2h4h0"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_38bvs"]
+[ext_resource type="PackedScene" uid="uid://hoo174ku7ydt" path="res://parallax_bg_v_1.tscn" id="2_1m534"]
+[ext_resource type="Resource" uid="uid://dn5jx7my24d5m" path="res://resources/PointSystem.tres" id="2_orxi0"]
+[ext_resource type="PackedScene" uid="uid://dctt2a4iagbam" path="res://UI.tscn" id="2_ps4dx"]
+[ext_resource type="StyleBox" uid="uid://bfmm1r451b2ic" path="res://themes/mainPanels.tres" id="3_66mmh"]
+[ext_resource type="PackedScene" uid="uid://4s2cocq13nva" path="res://skateboard.tscn" id="3_roexk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l04x6"]
+size = Vector2(21, 146)
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_38bvs")
+PointSystem = ExtResource("2_orxi0")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+z_index = -1
+custom_minimum_size = Vector2(850, 534)
+layout_mode = 0
+offset_top = -48.0
+offset_right = 1280.0
+offset_bottom = 486.0
+stretch = true
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1280, 534)
+render_target_update_mode = 4
+
+[node name="ParallaxBg-V1" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_1m534")]
+layer = 1
+scale = Vector2(0.84, 0.84)
+transform = Transform2D(0.84, 0, 0, 0.84, 0, 0)
+
+[node name="ValuePanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 521.0
+offset_top = 37.0
+offset_right = 741.0
+offset_bottom = 202.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("3_66mmh")
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ValuePanel"]
+layout_mode = 0
+offset_right = 201.0
+offset_bottom = 141.0
+alignment = 1
+
+[node name="ActiveValue" type="Label" parent="ValuePanel/VBoxContainer"]
+layout_mode = 2
+text = "ACTIVE VALUE: X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClickValue" type="Label" parent="ValuePanel/VBoxContainer"]
+layout_mode = 2
+text = " Click Value: X"
+
+[node name="TrickValue" type="Label" parent="ValuePanel/VBoxContainer"]
+layout_mode = 2
+text = " Idle Value: X"
+
+[node name="StylePoints" type="Label" parent="ValuePanel/VBoxContainer"]
+layout_mode = 2
+text = "Style Points: X"
+
+[node name="Equation" type="Label" parent="ValuePanel/VBoxContainer"]
+layout_mode = 2
+text = "P = (C + T) x S"
+
+[node name="Equation2" type="Label" parent="ValuePanel/VBoxContainer"]
+layout_mode = 2
+text = "P = (C + T) x S"
+
+[node name="UI" parent="." instance=ExtResource("2_ps4dx")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="skateboard" parent="." instance=ExtResource("3_roexk")]
+position = Vector2(220, 443)
+metadata/_edit_lock_ = true
+
+[node name="clickerButton" type="Button" parent="."]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 1280.0
+offset_bottom = 480.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.713726, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "CLICK ME"
+flat = true
+metadata/_edit_lock_ = true
+
+[node name="boundaryStart" type="StaticBody2D" parent="."]
+position = Vector2(116, 408)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaryStart"]
+shape = SubResource("RectangleShape2D_l04x6")
+
+[node name="boundaryEnd" type="StaticBody2D" parent="."]
+position = Vector2(1108, 408)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaryEnd"]
+shape = SubResource("RectangleShape2D_l04x6")
+
+[node name="RESET" type="Button" parent="."]
+layout_mode = 0
+offset_left = 997.0
+offset_top = 48.0
+offset_right = 1062.0
+offset_bottom = 96.0
+text = "RESET"
+
+[node name="PerSec" type="Timer" parent="." groups=["PerSecTimer"]]
+unique_name_in_owner = true
+
+[node name="TimerLabel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 311.0
+offset_top = 38.0
+offset_right = 483.0
+offset_bottom = 80.0
+
+[node name="TimerLabel" type="Label" parent="TimerLabel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="clickerButton" to="." method="_on_clicker_button_pressed"]
+[connection signal="pressed" from="clickerButton" to="UI" method="_on_clicker_button_pressed"]
+[connection signal="pressed" from="RESET" to="." method="_on_reset_pressed"]
+[connection signal="timeout" from="PerSec" to="." method="_on_per_sec_timeout"]

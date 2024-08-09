@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=2 format=3 uid="uid://cal2aa84kwspy"]
+
+[ext_resource type="Script" path="res://resources/upgrades/upgradeItem.gd" id="1_1p70a"]
+
+[resource]
+script = ExtResource("1_1p70a")
+name = "Understanding Stance"
+description = "Click (x2)"
+cost = 1000
+upgrade_type = "click"
+upgrade_value = 2

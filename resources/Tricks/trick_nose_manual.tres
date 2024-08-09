@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TrickItem" load_steps=2 format=3 uid="uid://crkijewb0dwmt"]
+
+[ext_resource type="Script" path="res://resources/Tricks/TrickItem.gd" id="1_om6x7"]
+
+[resource]
+script = ExtResource("1_om6x7")
+name = "Nose Manual"
+description = "+10 Trick"
+cost = 10000
+trick_value = 10

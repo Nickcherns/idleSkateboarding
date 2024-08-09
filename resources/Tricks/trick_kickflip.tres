@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TrickItem" load_steps=2 format=3 uid="uid://sxgx8midepx6"]
+
+[ext_resource type="Script" path="res://resources/Tricks/TrickItem.gd" id="1_fta13"]
+
+[resource]
+script = ExtResource("1_fta13")
+name = "Kickflip"
+description = "+3 Trick"
+cost = 500
+trick_value = 3
+locked = true
+flip_trick = true
+nollie_flip_trick = false

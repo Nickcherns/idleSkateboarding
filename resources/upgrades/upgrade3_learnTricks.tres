@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=2 format=3 uid="uid://evwht08wac2v"]
+
+[ext_resource type="Script" path="res://resources/upgrades/upgradeItem.gd" id="1_gwvoq"]
+
+[resource]
+script = ExtResource("1_gwvoq")
+name = "Learn Some Tricks"
+description = "Unlock Flip Tricks"
+cost = 250
+upgrade_type = "unlock_flip"
+upgrade_value = 0

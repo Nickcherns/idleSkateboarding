@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TrickItem" load_steps=2 format=3 uid="uid://dpmnup41b5los"]
+
+[ext_resource type="Script" path="res://resources/Tricks/TrickItem.gd" id="1_37jr3"]
+
+[resource]
+script = ExtResource("1_37jr3")
+name = "Manual"
+description = "+2 Trick"
+cost = 100
+trick_value = 2

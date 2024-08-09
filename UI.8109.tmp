@@ -1,0 +1,503 @@
+[gd_scene load_steps=20 format=3 uid="uid://dctt2a4iagbam"]
+
+[ext_resource type="Script" path="res://scripts/UI.gd" id="1_76oxq"]
+[ext_resource type="StyleBox" uid="uid://dh3a6adh2nl88" path="res://themes/curbPanel.tres" id="3_bo318"]
+[ext_resource type="Script" path="res://scripts/tricks_list.gd" id="3_wrlhp"]
+[ext_resource type="Resource" uid="uid://dn5jx7my24d5m" path="res://resources/PointSystem.tres" id="4_ig0a6"]
+[ext_resource type="StyleBox" uid="uid://bfmm1r451b2ic" path="res://themes/mainPanels.tres" id="4_pikmj"]
+[ext_resource type="StyleBox" uid="uid://y8mgks3bckir" path="res://themes/menuButtonDefault.tres" id="4_typ01"]
+[ext_resource type="StyleBox" uid="uid://ww7kgerd4brt" path="res://themes/menuButtonHover.tres" id="5_qxngc"]
+[ext_resource type="StyleBox" uid="uid://bhm0oa6xcbh3i" path="res://themes/menuButtonPressed.tres" id="6_a7mcn"]
+[ext_resource type="Script" path="res://scripts/perform_list.gd" id="6_lg3xg"]
+[ext_resource type="PackedScene" uid="uid://cxwd7h2ce0rli" path="res://upgrade_component.tscn" id="7_3gua0"]
+[ext_resource type="PackedScene" uid="uid://dumhujojggt0s" path="res://options_menu.tscn" id="7_78a4d"]
+[ext_resource type="StyleBox" uid="uid://cemdqskmqogaf" path="res://themes/PerformButtonDefault.tres" id="7_g7d3r"]
+[ext_resource type="Resource" uid="uid://dp0sntjtrsrqx" path="res://resources/upgrades/upgrade2_pushHarder.tres" id="8_1m3sc"]
+[ext_resource type="Resource" uid="uid://r67ouroln14g" path="res://resources/upgrades/upgrade3_learnStyle.tres" id="9_ogupb"]
+[ext_resource type="Resource" uid="uid://evwht08wac2v" path="res://resources/upgrades/upgrade4_learnTricks.tres" id="10_vapfc"]
+[ext_resource type="Resource" uid="uid://cal2aa84kwspy" path="res://resources/upgrades/upgrade5_understandStance.tres" id="11_obwj1"]
+[ext_resource type="Resource" uid="uid://cjc5a6q6k1dm0" path="res://resources/upgrades/upgrade6_copyPro.tres" id="12_mso77"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e46kw"]
+bg_color = Color(0.219608, 0.156863, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2cqk"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_76oxq")
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="optionsMenu" parent="CanvasLayer3" instance=ExtResource("7_78a4d")]
+visible = false
+offset_left = -256.0
+offset_top = -296.0
+offset_right = 264.0
+offset_bottom = 88.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer2"]
+offset_top = 480.0
+offset_right = 1280.0
+offset_bottom = 776.0
+theme_override_styles/panel = ExtResource("3_bo318")
+
+[node name="TrickList" type="Control" parent="CanvasLayer2"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 568.0
+offset_right = 80.0
+offset_bottom = 568.0
+script = ExtResource("3_wrlhp")
+PointSystem = ExtResource("4_ig0a6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/TrickList"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 165.0
+theme_override_constants/separation = 35
+
+[node name="Ollie" type="PanelContainer" parent="CanvasLayer2/TrickList/HBoxContainer"]
+custom_minimum_size = Vector2(1, 120)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_pikmj")
+
+[node name="Value" type="Label" parent="CanvasLayer2/TrickList/HBoxContainer/Ollie"]
+layout_mode = 2
+text = "Trick Points: 1"
+horizontal_alignment = 1
+
+[node name="Cost" type="Label" parent="CanvasLayer2/TrickList/HBoxContainer/Ollie/Value"]
+layout_mode = 2
+offset_top = -23.0
+offset_right = 108.0
+text = "Cost: 50
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Trick Name" type="Label" parent="CanvasLayer2/TrickList/HBoxContainer/Ollie/Value"]
+layout_mode = 2
+offset_top = -68.0
+offset_right = 108.0
+offset_bottom = -45.0
+size_flags_vertical = 0
+text = "Ollie
+"
+horizontal_alignment = 1
+
+[node name="LearnOllie" type="Button" parent="CanvasLayer2/TrickList/HBoxContainer/Ollie"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Learn
+"
+
+[node name="Kickflip" type="PanelContainer" parent="CanvasLayer2/TrickList/HBoxContainer"]
+custom_minimum_size = Vector2(1, 120)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_pikmj")
+
+[node name="Value" type="Label" parent="CanvasLayer2/TrickList/HBoxContainer/Kickflip"]
+layout_mode = 2
+text = "Trick Points: 2"
+horizontal_alignment = 1
+
+[node name="Trick Name" type="Label" parent="CanvasLayer2/TrickList/HBoxContainer/Kickflip/Value"]
+layout_mode = 2
+offset_top = -68.0
+offset_right = 108.0
+offset_bottom = -45.0
+size_flags_vertical = 0
+text = "Kickflip
+"
+horizontal_alignment = 1
+
+[node name="Cost" type="Label" parent="CanvasLayer2/TrickList/HBoxContainer/Kickflip/Value"]
+layout_mode = 2
+offset_left = -3.0
+offset_top = -23.0
+offset_right = 105.0
+text = "Cost: 250
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LearnKickflip" type="Button" parent="CanvasLayer2/TrickList/HBoxContainer/Kickflip"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Learn
+"
+
+[node name="Heelflip" type="PanelContainer" parent="CanvasLayer2/TrickList/HBoxContainer"]
+layout_direction = 1
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_pikmj")
+
+[node name="Value" type="Label" parent="CanvasLayer2/TrickList/HBoxContainer/Heelflip"]
+layout_mode = 2
+text = "Trick Points: 5"
+horizontal_alignment = 1
+
+[node name="Trick Name" type="Label" parent="CanvasLayer2/TrickList/HBoxContainer/Heelflip/Value"]
+layout_mode = 2
+offset_top = -68.0
+offset_right = 108.0
+offset_bottom = -45.0
+size_flags_vertical = 0
+text = "Heelflip
+"
+horizontal_alignment = 1
+
+[node name="Cost" type="Label" parent="CanvasLayer2/TrickList/HBoxContainer/Heelflip/Value"]
+layout_mode = 2
+offset_top = -23.0
+offset_right = 108.0
+text = "Cost: 500
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Learn" type="Button" parent="CanvasLayer2/TrickList/HBoxContainer/Heelflip"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Learn
+"
+
+[node name="UpgradesList" type="HBoxContainer" parent="CanvasLayer2"]
+offset_left = 48.0
+offset_top = 552.0
+offset_right = 1240.0
+offset_bottom = 744.0
+theme_override_constants/separation = 200
+
+[node name="Upgrade Component" parent="CanvasLayer2/UpgradesList" instance=ExtResource("7_3gua0")]
+layout_mode = 2
+
+[node name="Upgrade Component2" parent="CanvasLayer2/UpgradesList" instance=ExtResource("7_3gua0")]
+layout_mode = 2
+profile = ExtResource("8_1m3sc")
+
+[node name="Upgrade Component3" parent="CanvasLayer2/UpgradesList" instance=ExtResource("7_3gua0")]
+layout_mode = 2
+profile = ExtResource("9_ogupb")
+
+[node name="Upgrade Component4" parent="CanvasLayer2/UpgradesList" instance=ExtResource("7_3gua0")]
+layout_mode = 2
+profile = ExtResource("10_vapfc")
+
+[node name="Upgrade Component5" parent="CanvasLayer2/UpgradesList" instance=ExtResource("7_3gua0")]
+layout_mode = 2
+profile = ExtResource("11_obwj1")
+
+[node name="Upgrade Component6" parent="CanvasLayer2/UpgradesList" instance=ExtResource("7_3gua0")]
+layout_mode = 2
+profile = ExtResource("12_mso77")
+
+[node name="PerformList" type="Control" parent="CanvasLayer2"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 568.0
+offset_right = 80.0
+offset_bottom = 568.0
+script = ExtResource("6_lg3xg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/PerformList"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 440.0
+offset_bottom = 176.0
+
+[node name="ollie" type="Button" parent="CanvasLayer2/PerformList/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = ExtResource("7_g7d3r")
+theme_override_styles/hover = ExtResource("7_g7d3r")
+theme_override_styles/pressed = ExtResource("7_g7d3r")
+theme_override_styles/focus = ExtResource("7_g7d3r")
+disabled = true
+text = "Ollie"
+
+[node name="Flip Tricks" type="HBoxContainer" parent="CanvasLayer2/PerformList/VBoxContainer"]
+layout_mode = 2
+
+[node name="flipTricks" type="Label" parent="CanvasLayer2/PerformList/VBoxContainer/Flip Tricks"]
+layout_mode = 2
+text = "Flip Tricks: "
+
+[node name="kickFlip" type="Button" parent="CanvasLayer2/PerformList/VBoxContainer/Flip Tricks"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = ExtResource("7_g7d3r")
+theme_override_styles/hover = ExtResource("7_g7d3r")
+theme_override_styles/pressed = ExtResource("7_g7d3r")
+theme_override_styles/focus = ExtResource("7_g7d3r")
+text = "KickFlip"
+
+[node name="heelfip" type="Button" parent="CanvasLayer2/PerformList/VBoxContainer/Flip Tricks"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = ExtResource("7_g7d3r")
+theme_override_styles/hover = ExtResource("7_g7d3r")
+theme_override_styles/pressed = ExtResource("7_g7d3r")
+theme_override_styles/focus = ExtResource("7_g7d3r")
+text = "Heelflip"
+
+[node name="tre flip" type="Button" parent="CanvasLayer2/PerformList/VBoxContainer/Flip Tricks"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = ExtResource("7_g7d3r")
+theme_override_styles/hover = ExtResource("7_g7d3r")
+theme_override_styles/pressed = ExtResource("7_g7d3r")
+theme_override_styles/focus = ExtResource("7_g7d3r")
+disabled = true
+text = "Tre Flip"
+
+[node name="nose" type="HBoxContainer" parent="CanvasLayer2/PerformList/VBoxContainer"]
+layout_mode = 2
+
+[node name="nose" type="Label" parent="CanvasLayer2/PerformList/VBoxContainer/nose"]
+layout_mode = 2
+text = "Nollie:"
+
+[node name="nollie kickflip" type="Button" parent="CanvasLayer2/PerformList/VBoxContainer/nose"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("7_g7d3r")
+theme_override_styles/hover = ExtResource("7_g7d3r")
+theme_override_styles/pressed = ExtResource("7_g7d3r")
+theme_override_styles/focus = ExtResource("7_g7d3r")
+text = "Nollie Kickflip"
+
+[node name="nollie heelflip" type="Button" parent="CanvasLayer2/PerformList/VBoxContainer/nose"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("7_g7d3r")
+theme_override_styles/hover = ExtResource("7_g7d3r")
+theme_override_styles/pressed = ExtResource("7_g7d3r")
+theme_override_styles/focus = ExtResource("7_g7d3r")
+text = "Nollie Heelflip"
+
+[node name="Manuals" type="HBoxContainer" parent="CanvasLayer2/PerformList/VBoxContainer"]
+layout_mode = 2
+
+[node name="misc" type="Label" parent="CanvasLayer2/PerformList/VBoxContainer/Manuals"]
+layout_mode = 2
+text = "Misc: "
+
+[node name="manual" type="Button" parent="CanvasLayer2/PerformList/VBoxContainer/Manuals"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("7_g7d3r")
+theme_override_styles/hover = ExtResource("7_g7d3r")
+theme_override_styles/pressed = ExtResource("7_g7d3r")
+theme_override_styles/focus = ExtResource("7_g7d3r")
+text = "Manual"
+
+[node name="nose manual" type="Button" parent="CanvasLayer2/PerformList/VBoxContainer/Manuals"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("7_g7d3r")
+theme_override_styles/hover = ExtResource("7_g7d3r")
+theme_override_styles/pressed = ExtResource("7_g7d3r")
+theme_override_styles/focus = ExtResource("7_g7d3r")
+text = "Nose Manual"
+
+[node name="tricks" type="Label" parent="CanvasLayer2"]
+visible = false
+offset_left = 62.0
+offset_top = 504.0
+offset_right = 174.0
+offset_bottom = 538.0
+theme_override_font_sizes/font_size = 24
+text = "Tricks:"
+
+[node name="upgrades" type="Label" parent="CanvasLayer2"]
+offset_left = 64.0
+offset_top = 504.0
+offset_right = 182.0
+offset_bottom = 538.0
+theme_override_font_sizes/font_size = 24
+text = "Upgrades:"
+
+[node name="perform" type="Label" parent="CanvasLayer2"]
+visible = false
+offset_left = 64.0
+offset_top = 504.0
+offset_right = 182.0
+offset_bottom = 538.0
+theme_override_font_sizes/font_size = 24
+text = "Perform:"
+
+[node name="cantAfford" type="Label" parent="CanvasLayer2"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 88.0
+offset_right = 137.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.952941, 0.952941, 0.952941, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_e46kw")
+text = "You can't afford this upgrade, bro..."
+
+[node name="errorTimer" type="Timer" parent="CanvasLayer2/cantAfford"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="menuButtons" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_left = -0.006
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.68
+offset_top = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/menuButtons"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e2cqk")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/menuButtons"]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 1280.0
+offset_bottom = 72.0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/menuButtons/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Tricks" type="Button" parent="CanvasLayer/menuButtons/MarginContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.160784, 0.160784, 0.160784, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_typ01")
+theme_override_styles/hover = ExtResource("5_qxngc")
+theme_override_styles/pressed = ExtResource("6_a7mcn")
+text = "Tricks
+"
+
+[node name="Upgrades" type="Button" parent="CanvasLayer/menuButtons/MarginContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.160784, 0.160784, 0.160784, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_typ01")
+theme_override_styles/hover = ExtResource("5_qxngc")
+theme_override_styles/pressed = ExtResource("6_a7mcn")
+text = "Upgrades
+"
+
+[node name="Perform" type="Button" parent="CanvasLayer/menuButtons/MarginContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.160784, 0.160784, 0.160784, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_typ01")
+theme_override_styles/hover = ExtResource("5_qxngc")
+theme_override_styles/pressed = ExtResource("6_a7mcn")
+text = "Perform
+"
+
+[node name="Extras" type="Button" parent="CanvasLayer/menuButtons/MarginContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.160784, 0.160784, 0.160784, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_typ01")
+theme_override_styles/hover = ExtResource("5_qxngc")
+theme_override_styles/pressed = ExtResource("6_a7mcn")
+text = "Extras
+"
+
+[node name="Options" type="Button" parent="CanvasLayer/menuButtons/MarginContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.160784, 0.160784, 0.160784, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_typ01")
+theme_override_styles/hover = ExtResource("5_qxngc")
+theme_override_styles/pressed = ExtResource("6_a7mcn")
+text = "Options"
+
+[node name="Exit" type="Button" parent="CanvasLayer/menuButtons/MarginContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.160784, 0.160784, 0.160784, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_typ01")
+theme_override_styles/hover = ExtResource("5_qxngc")
+theme_override_styles/pressed = ExtResource("6_a7mcn")
+text = "Exit"
+
+[connection signal="pressed" from="CanvasLayer2/PerformList/VBoxContainer/Flip Tricks/kickFlip" to="CanvasLayer2/PerformList" method="_on_kick_flip_pressed"]
+[connection signal="pressed" from="CanvasLayer2/PerformList/VBoxContainer/Flip Tricks/heelfip" to="CanvasLayer2/PerformList" method="_on_heelfip_pressed"]
+[connection signal="pressed" from="CanvasLayer2/PerformList/VBoxContainer/Flip Tricks/tre flip" to="CanvasLayer2/PerformList" method="_on_tre_flip_pressed"]
+[connection signal="pressed" from="CanvasLayer2/PerformList/VBoxContainer/nose/nollie kickflip" to="CanvasLayer2/PerformList" method="_on_nollie_kickflip_pressed"]
+[connection signal="pressed" from="CanvasLayer2/PerformList/VBoxContainer/nose/nollie heelflip" to="CanvasLayer2/PerformList" method="_on_nollie_heelflip_pressed"]
+[connection signal="pressed" from="CanvasLayer2/PerformList/VBoxContainer/Manuals/manual" to="CanvasLayer2/PerformList" method="_on_manual_pressed"]
+[connection signal="pressed" from="CanvasLayer2/PerformList/VBoxContainer/Manuals/nose manual" to="CanvasLayer2/PerformList" method="_on_nose_manual_pressed"]
+[connection signal="timeout" from="CanvasLayer2/cantAfford/errorTimer" to="." method="_on_error_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/menuButtons/MarginContainer/HBoxContainer/Tricks" to="." method="_on_tricks_pressed"]
+[connection signal="pressed" from="CanvasLayer/menuButtons/MarginContainer/HBoxContainer/Upgrades" to="." method="_on_upgrades_pressed"]
+[connection signal="pressed" from="CanvasLayer/menuButtons/MarginContainer/HBoxContainer/Perform" to="." method="_on_perform_pressed"]
+[connection signal="pressed" from="CanvasLayer/menuButtons/MarginContainer/HBoxContainer/Extras" to="." method="_on_extras_pressed"]
+[connection signal="pressed" from="CanvasLayer/menuButtons/MarginContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/menuButtons/MarginContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]

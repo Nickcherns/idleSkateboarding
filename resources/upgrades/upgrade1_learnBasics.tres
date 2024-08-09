@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=2 format=3 uid="uid://ccdj6eqwn7cag"]
+
+[ext_resource type="Script" path="res://resources/upgrades/upgradeItem.gd" id="1_pl41i"]
+
+[resource]
+script = ExtResource("1_pl41i")
+name = "Learn The Basics"
+description = "+1 Style"
+cost = 10
+upgrade_type = "add_style"
+upgrade_value = 1

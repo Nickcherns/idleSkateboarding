@@ -25,6 +25,9 @@ window/stretch/mode="viewport"
 
 folder_colors={
 "res://art/": "red",
+"res://resources/": "green",
+"res://resources/Tricks/": "pink",
+"res://resources/upgrades/": "purple",
 "res://scripts/": "purple",
 "res://themes/": "blue"
 }

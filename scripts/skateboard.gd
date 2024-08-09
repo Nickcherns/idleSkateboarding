@@ -85,10 +85,13 @@ func mirror_sprite(word):
 		
 # mirror sprite and play random animation
 func _on_perform_timer_timeout():
-	var randomAnimation = TrickSelect.selectRandom()
-	mirror_sprite(randomAnimation)
-	randomAnimation = TrickSelect.returnAnimation(randomAnimation)
-	animatedSprite.play(randomAnimation)
+	var random_animation = TrickSelect.selectRandom()
+	if typeof(random_animation) == TYPE_NIL:
+		pass
+	else:
+		mirror_sprite(random_animation)
+		var returned_animation = TrickSelect.returnAnimation(random_animation)
+		animatedSprite.play(returned_animation)
 
 
 

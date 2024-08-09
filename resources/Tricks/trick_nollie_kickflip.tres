@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TrickItem" load_steps=2 format=3 uid="uid://bdu7ptysswhq5"]
+
+[ext_resource type="Script" path="res://resources/Tricks/TrickItem.gd" id="1_6en4r"]
+
+[resource]
+script = ExtResource("1_6en4r")
+name = "Nollie Kickflip"
+description = "+12 Trick"
+cost = 20000
+trick_value = 12
+locked = true
+flip_trick = false
+nollie_flip_trick = true

@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3r0nq05hj2xk"]
+
+[ext_resource type="Script" path="res://scripts/trick_component.gd" id="1_wsgj6"]
+[ext_resource type="Resource" uid="uid://y8glbd17ggmo" path="res://resources/Tricks/trick_ollie.tres" id="2_pb1si"]
+[ext_resource type="Texture2D" uid="uid://b28dba2h0w6m2" path="res://art/learnedStamp.png" id="3_6jox8"]
+[ext_resource type="Texture2D" uid="uid://cx08sal5md0kl" path="res://art/locked.png" id="4_r8wj4"]
+
+[node name="Trick Component" type="Control"]
+layout_mode = 3
+anchor_right = 0.15
+anchor_bottom = 0.226
+offset_bottom = 0.352005
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wsgj6")
+profile = ExtResource("2_pb1si")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 192.0
+
+[node name="name" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.083
+anchor_right = 0.5
+anchor_bottom = 0.083
+offset_left = -16.0
+offset_top = -7.936
+offset_right = 28.0
+offset_bottom = 15.064
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "name"
+
+[node name="description" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.497
+anchor_top = 0.268
+anchor_right = 0.497
+anchor_bottom = 0.268
+offset_left = -31.424
+offset_top = -11.456
+offset_right = 31.576
+offset_bottom = 11.544
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "descript"
+
+[node name="cost" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -11.5
+offset_right = 16.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "cost"
+
+[node name="train" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+text = "Train"
+
+[node name="LearnedStamp" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(96, 112)
+rotation = 0.785398
+scale = Vector2(2, 1.5)
+texture = ExtResource("3_6jox8")
+
+[node name="LockedStamp" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(96, 96)
+scale = Vector2(3, 3)
+texture = ExtResource("4_r8wj4")
+
+[connection signal="pressed" from="Panel/train" to="." method="_on_train_pressed"]
